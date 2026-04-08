@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Plus+Jakarta+Sans:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#254188",
+                        "on-surface-variant": "#d0c5af",
+                        "on-secondary-fixed-variant": "#474746",
+                        "primary": "#f2ca50",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-tertiary": "#082b72",
+                        "on-background": "#e5e2e1",
+                        "inverse-primary": "#735c00",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "surface-variant": "#353534",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface-container-low": "#1c1b1b",
+                        "secondary": "#c8c6c5",
+                        "on-secondary-container": "#b7b5b4",
+                        "surface-container": "#201f1f",
+                        "tertiary-fixed": "#dbe1ff",
+                        "surface": "#131313",
+                        "secondary-fixed": "#e5e2e1",
+                        "inverse-on-surface": "#313030",
+                        "on-tertiary-fixed": "#00174b",
+                        "on-secondary": "#313030",
+                        "on-primary-fixed": "#241a00",
+                        "surface-container-highest": "#353534",
+                        "on-error": "#690005",
+                        "tertiary": "#bfcdff",
+                        "surface-tint": "#e9c349",
+                        "outline-variant": "#4d4635",
+                        "on-surface": "#e5e2e1",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#ffe088",
+                        "tertiary-container": "#97b0ff",
+                        "error-container": "#93000a",
+                        "surface-container-high": "#2a2a2a",
+                        "outline": "#99907c",
+                        "on-primary-container": "#554300",
+                        "error": "#ffb4ab",
+                        "surface-bright": "#3a3939",
+                        "background": "#131313",
+                        "inverse-surface": "#e5e2e1",
+                        "secondary-container": "#474746",
+                        "on-tertiary-fixed-variant": "#27438a",
+                        "tertiary-fixed-dim": "#b4c5ff",
+                        "on-primary": "#3c2f00",
+                        "surface-dim": "#131313",
+                        "on-primary-fixed-variant": "#574500",
+                        "primary-fixed-dim": "#e9c349",
+                        "primary-container": "#d4af37"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Newsreader", "serif"],
+                        "body": ["Plus Jakarta Sans", "sans-serif"],
+                        "label": ["Plus Jakarta Sans", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-nav {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(20px);
+        }
+        .gold-gradient {
+            background: linear-gradient(135deg, #f2ca50 0%, #d4af37 100%);
+        }
+        .gold-dust {
+            box-shadow: 0px 20px 40px rgba(212, 175, 55, 0.06);
+        }
+        .ghost-border {
+            border-bottom: 1px solid rgba(77, 70, 53, 0.15);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body selection:bg-primary/30">
+<!-- Navigation Drawer -->
+<!-- NavigationDrawer -->
+<aside class="fixed left-0 top-0 h-full z-40 rounded-r-lg w-72 bg-neutral-900/40 backdrop-blur-3xl shadow-[0_0_40px_0_rgba(229,226,225,0.06)] pt-24 pb-8 flex flex-col justify-between">
+<div>
+<!-- Header Profile Section -->
+<div class="px-8 mb-12 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]/30">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a high-end legal executive woman with soft lighting and minimalist corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyBxAaXqjeKzb8dLukoySbI6NiQMnUIGN3Tqf7GKl6IZAC7stcdWVncLmHG_nggxnlAikqr-YUmF4nW_vPPIUqAa19ZkLnibuY5hzMTUlSah7vXGWgV-gJ6N0n7bOdvWK5cMbwF9DYHX9lUCXSASzWbYG0_aoprSSr03XTZz_wLnT4gjwx4v54lscQ_L3pNqqR1C7YQ53HtwiYQsmkISwQxruB9RYuWSgJHiIl2TUNjs13YxKdLHFlxWvgL8P5YYKaCmn0YVlcXE"/>
+</div>
+<div>
+<h3 class="font-headline tracking-tight text-on-surface text-lg">Ana IA</h3>
+<p class="font-label uppercase tracking-[0.1em] text-[10px] text-primary">Sistema Ativo</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="space-y-1">
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label uppercase tracking-widest text-xs">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-[#D4AF37] font-bold border-l-2 border-[#D4AF37] bg-white/5 transition-colors duration-300" href="leads.html">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label uppercase tracking-widest text-xs">Leads</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="agenda.html">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label uppercase tracking-widest text-xs">Agenda</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="triagem.html">
+<span class="material-symbols-outlined">smart_screen</span>
+<span class="font-label uppercase tracking-widest text-xs">Triagem</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="configuracoes.html">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label uppercase tracking-widest text-xs">Configurações</span>
+</a>
+</nav>
+</div>
+<div class="px-8">
+<div class="text-xl font-bold text-[#D4AF37] tracking-tighter">Lorena</div>
+<p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">Advocacia</p>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-72 min-h-screen">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full px-12 py-8 sticky top-0 bg-background/80 backdrop-blur-md z-40">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-['Newsreader'] text-3xl font-light text-on-background">Exploração de Casos</h1>
+</div>
+<button class="gold-gradient px-8 py-3 rounded-xl text-on-primary font-bold text-sm tracking-wide gold-dust hover:scale-[1.02] transition-transform active:scale-[0.98]">
+                Exportar para Planilha
+            </button>
+</header>
+<div class="px-12 pb-20">
+<!-- Filter Bar -->
+<section class="mb-12 flex flex-wrap items-end gap-8">
+<div class="flex-1 min-w-[200px]">
+<label class="font-headline italic text-primary/80 text-sm block mb-2">Filtrar por Status</label>
+<div class="flex gap-4">
+<button class="px-4 py-2 bg-surface-container-highest text-primary text-xs rounded-full border border-primary/20">Urgente</button>
+<button class="px-4 py-2 bg-surface-container-low text-on-surface-variant text-xs rounded-full hover:bg-surface-container-high transition-colors">Qualificado</button>
+<button class="px-4 py-2 bg-surface-container-low text-on-surface-variant text-xs rounded-full hover:bg-surface-container-high transition-colors">Agendado</button>
+</div>
+</div>
+<div class="w-64">
+<label class="font-headline italic text-primary/80 text-sm block mb-2">Score de Urgência</label>
+<div class="relative h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="absolute left-0 top-0 h-full gold-gradient w-3/4"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="text-[10px] text-on-surface-variant uppercase tracking-tighter">Mínimo (0)</span>
+<span class="text-[10px] text-primary uppercase tracking-tighter font-bold">Atual (75+)</span>
+</div>
+</div>
+<div class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors cursor-pointer ml-auto">
+<span class="material-symbols-outlined text-lg">tune</span>
+<span class="text-xs uppercase tracking-[0.1em] font-bold">Filtros Avançados</span>
+</div>
+</section>
+<!-- Case Grid -->
+<section class="grid grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group bg-surface-container-low p-8 rounded-xl relative overflow-hidden transition-all duration-300 hover:bg-surface-container-high gold-dust">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-error-container/20 text-error text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-bold border border-error-container/30">Altíssima Prioridade</span>
+</div>
+<div class="mb-6">
+<p class="text-[10px] text-primary/50 font-bold mb-1 tracking-[0.2em]">CASE ID #89210</p>
+<h3 class="font-headline text-2xl text-on-background group-hover:text-primary transition-colors">Sr. Ricardo Mendonça</h3>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 italic">
+                        "Busca revisão de contrato imobiliário devido a cláusulas abusivas identificadas em financiamento de alto valor. Risco iminente de execução."
+                    </p>
+<div class="flex items-center justify-between pt-6 ghost-border">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-low" data-alt="professional male lawyer portrait with neutral background and soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKti7aSEvRoobg3AvBy4iEgbjq11zlx3gLA9ui8x4YhYGldlafhujzYxjC4khXMcx09QqEopTT3tQ9ZMWpoEoB-zw8c0gGZmQsjAmeyn7vqwdvFZ9Tzj0sTeFU2IrvvChhVt-fHYDNU6bv5zcUIWawBZRayBE42F7pS1wcmxyoPCM21d8_tvM5xxACWu9cV6gtUcw9NfYgAYBQMsjkc-vZvTVVp3N_Tpgap0I3fq3n_jUMzdXBuxdYIIa81lNF2xK7M_zqwZRcuuA"/>
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] border-2 border-surface-container-low text-primary">+2</div>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-all group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group bg-surface-container-low p-8 rounded-xl relative overflow-hidden transition-all duration-300 hover:bg-surface-container-high gold-dust">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-primary/10 text-primary text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-bold border border-primary/20">Qualificado</span>
+</div>
+<div class="mb-6">
+<p class="text-[10px] text-primary/50 font-bold mb-1 tracking-[0.2em]">CASE ID #89215</p>
+<h3 class="font-headline text-2xl text-on-background group-hover:text-primary transition-colors">Dra. Heloísa Castros</h3>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 italic">
+                        "Inventário complexo envolvendo múltiplos ativos internacionais e holdings familiares. Requer análise de blindagem patrimonial prévia."
+                    </p>
+<div class="flex items-center justify-between pt-6 ghost-border">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-low" data-alt="professional female legal consultant portrait with sophisticated attire and soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXhGDUfcAaCOhViSzuGPQSoLomADYfQy81B9qiG8KVRqIr_Eq8iLWR-ASZ0trxcGL-pAMHxoCRPv5YqEOyV66FXE-mtJB_Qk4i5rfWIqN017WqQ4tX7uYpkLW7a1kkwrwHhTAQNgPBYXp-Lcmgv3Yhw_WAWSNmR0LlV0qplCU8_dFgnqr6NNLo8UnYx2X6B1TZ7I86L5p7qnrXacmimRLRapLe_Dxf-1qrn8n_KcRQ9DdFlAMnL8ZRjtKjdAB6ylsIpfLvk-Z4hTg"/>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-all group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group bg-surface-container-low p-8 rounded-xl relative overflow-hidden transition-all duration-300 hover:bg-surface-container-high gold-dust">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-bold">Agendado</span>
+</div>
+<div class="mb-6">
+<p class="text-[10px] text-primary/50 font-bold mb-1 tracking-[0.2em]">CASE ID #89198</p>
+<h3 class="font-headline text-2xl text-on-background group-hover:text-primary transition-colors">Investimentos Capital S.A.</h3>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 italic">
+                        "Assessoria em fusão corporativa de médio porte. Diligência documental em estágio inicial para verificação de passivos trabalhistas."
+                    </p>
+<div class="flex items-center justify-between pt-6 ghost-border">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 flex items-center justify-center text-[10px] border-2 border-surface-container-low text-primary">IC</div>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-all group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+<!-- Card 4 (Asymmetric Large Card) -->
+<div class="xl:col-span-2 group bg-surface-container-low p-8 rounded-xl relative overflow-hidden transition-all duration-300 hover:bg-surface-container-high gold-dust flex flex-col md:flex-row gap-8">
+<div class="md:w-1/3 h-48 md:h-auto rounded-xl overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-700">
+<img class="w-full h-full object-cover" data-alt="statue of lady justice in a dark legal library with dramatic golden sunlight rays through window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJCJ6tG4_N9OdJWJoKenxiSSc9EsAysb-G3XGuK1MvRnxf38m1BnuSCvsWHWEwRaX58kD6u5YoPoK5UFbC3xvIx6L1DjZd-MeP7rFpDyAi_Kmf2YGYiR04P-SyaDOR8VVkXmtFCw25-Zdqcxl4hh3drpB5nQaioH3RXU2qlCF9IURZyNjTTLf77FM9ZEh1OM_VecFVThwY8drBb9k4LztFU-BdWuuk8eWyWJTRNs5mCXKQBOnIV21bQhqv5LY1Rm6sAFUag0Z-JMw"/>
+</div>
+<div class="md:w-2/3 flex flex-col justify-center">
+<div class="mb-4">
+<span class="bg-primary/20 text-primary text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-bold border border-primary/30">Análise da Ana IA</span>
+</div>
+<h3 class="font-headline text-3xl text-on-background mb-4">Caso Estratégico: Família Albuquerque</h3>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-6 italic">
+                            "A inteligência artificial detectou correlações críticas com o processo #4421-B. Recomenda-se reunião imediata com o sócio-diretor para alinhamento de tese de defesa baseada em precedentes recentes do STJ."
+                        </p>
+<div class="flex gap-4">
+<button class="px-6 py-2 bg-primary/10 text-primary text-xs rounded-xl border border-primary/20 hover:bg-primary/20 transition-colors">Visualizar Insight</button>
+<button class="px-6 py-2 bg-surface-container-highest text-on-surface text-xs rounded-xl hover:bg-surface-bright transition-colors">Ignorar</button>
+</div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="group bg-surface-container-low p-8 rounded-xl relative overflow-hidden transition-all duration-300 hover:bg-surface-container-high gold-dust">
+<div class="absolute top-0 right-0 p-4">
+<span class="bg-error-container/20 text-error text-[10px] px-3 py-1 rounded-full uppercase tracking-widest font-bold border border-error-container/30">Urgente</span>
+</div>
+<div class="mb-6">
+<p class="text-[10px] text-primary/50 font-bold mb-1 tracking-[0.2em]">CASE ID #89222</p>
+<h3 class="font-headline text-2xl text-on-background group-hover:text-primary transition-colors">Eng. Marcos Viana</h3>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed mb-8 italic">
+                        "Disputa de propriedade intelectual sobre patente de software industrial. Notificação extrajudicial recebida há menos de 24 horas."
+                    </p>
+<div class="flex items-center justify-between pt-6 ghost-border">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-surface-container-low" data-alt="middle aged engineer portrait with glasses and focused expression soft bokeh background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg3KYNOQvBAMNB2cNSNMx_o90rYc_z_sUNQad9SFLGBlBdf8gIEJf6A5zpNy78qqBCcCZ0L1gJ2BzaitoSrct7QtLq8pE5HMe2xMxm_awJCXzPRMKf6LsCUrNQd5am9alNek7WqD8Eo4EzLFYqvJbIlBHEbZPuL2oBROid28Dv712Pb1PLpbe0VcANuhLGsSDo0dtuYUsJHJaL5hUdmmKNqO-yo6ABo5eF27jMAN27juPPruvLgWlpY7FKUvqbl2mf3N3hZPYChv8"/>
+</div>
+<span class="material-symbols-outlined text-primary/40 group-hover:text-primary transition-all group-hover:translate-x-1">arrow_forward</span>
+</div>
+</div>
+</section>
+<!-- AI Floating Action (Contextual) -->
+<div class="fixed bottom-12 right-12">
+<button class="w-16 h-16 gold-gradient rounded-full shadow-2xl flex items-center justify-center group hover:scale-110 transition-all duration-300">
+<span class="material-symbols-outlined text-on-primary text-3xl" style="font-variation-settings: 'FILL' 1;">psychology</span>
+<div class="absolute right-full mr-4 px-4 py-2 bg-surface-container-highest text-on-surface text-xs rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap">
+                        Perguntar à Ana IA
+                    </div>
+</button>
+</div>
+<!-- Footer -->
+<footer class="mt-20 pt-12 border-t border-outline-variant/10 flex justify-between items-center opacity-40 hover:opacity-100 transition-opacity">
+<div class="flex items-center gap-2">
+<span class="font-headline italic text-lg">Lorena Advocacia</span>
+<span class="text-[10px] uppercase tracking-widest">© 2024 SOBERANIA JURÍDICA</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="text-[10px] uppercase tracking-[0.2em]">Powered by</span>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="font-headline italic text-sm">Ana IA</span>
+</div>
+</div>
+</footer>
+</div>
+</main>
+</body></html>

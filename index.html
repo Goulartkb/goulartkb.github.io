@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana IA | Gestão Jurídica Premium</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              headline: ["Newsreader", "serif"],
+              body: ["Plus Jakarta Sans", "sans-serif"],
+              label: ["Plus Jakarta Sans", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        :root {
+            --bg-obsidian: #131313;
+            --surface-low: #1C1B1B;
+            --surface-high: #353534;
+            --surface-bright: #3a3939;
+            --gold-primary: #D4AF37;
+            --gold-gradient: linear-gradient(135deg, #F2CA50 0%, #D4AF37 100%);
+            --text-main: #E5E2E1;
+            --text-muted: #A0A0A0;
+            --gold-dust: 0px 20px 40px rgba(212, 175, 55, 0.06);
+            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-obsidian);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            overflow: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        /* Typography */
+        h1, h2, h3, .serif {
+            font-family: 'Newsreader', serif;
+            font-weight: 600;
+        }
+
+        /* Main Editorial Content */
+        main {
+            flex: 1;
+            padding: 4rem 5rem;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 5rem;
+        }
+
+        header .welcome {
+            max-width: 600px;
+        }
+
+        header .welcome span {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            color: var(--gold-primary);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-top: 0.5rem;
+        }
+
+        .btn-signature {
+            background: var(--gold-gradient);
+            color: #000;
+            border: none;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.4s var(--transition-smooth);
+            font-size: 0.95rem;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
+        }
+
+        .btn-signature:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        /* Sovereign Grid (Asymmetric) */
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+        }
+
+        section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            color: var(--text-main);
+        }
+
+        /* Tonal Cards */
+        .card {
+            background-color: var(--surface-low);
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: 0.4s var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            background-color: var(--surface-high);
+            box-shadow: var(--gold-dust);
+            transform: translateY(-5px);
+        }
+
+        /* Leads do Dia Stats */
+        .leads-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .leads-stat .value {
+            font-size: 4rem;
+            color: var(--gold-primary);
+            line-height: 1;
+        }
+
+        .leads-stat .label {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* List Items (Gallery Approach) */
+        .editorial-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .list-item {
+            padding: 1.5rem;
+            border-radius: 12px;
+            transition: 0.3s;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .list-item:hover {
+            background: var(--surface-high);
+        }
+
+        .list-item .info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .list-item .title {
+            font-size: 1.1rem;
+            color: var(--gold-primary);
+            font-family: 'Newsreader', serif;
+        }
+
+        .list-item .subtitle {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .tag-status {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--gold-primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        /* Successions Card (Triages) */
+        .triagem-card {
+            margin-bottom: 2rem;
+        }
+
+        .triagem-card .id {
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .triagem-card p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-main);
+            font-weight: 300;
+        }
+
+        /* AI Módulo */
+        .ai-engine-box {
+            background-color: #0E0E0E; /* Deep inset feel */
+            border: 1px solid rgba(255,255,255,0.03);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .ai-engine-box h3 {
+            font-size: 1rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s var(--transition-smooth) forwards;
+        }
+
+    </style>
+</head>
+<body>
+<!-- NavigationDrawer -->
+<aside class="fixed left-0 top-0 h-full z-40 rounded-r-lg w-72 bg-neutral-900/40 backdrop-blur-3xl shadow-[0_0_40px_0_rgba(229,226,225,0.06)] pt-24 pb-8 flex flex-col justify-between">
+<div>
+<!-- Header Profile Section -->
+<div class="px-8 mb-12 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]/30">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a high-end legal executive woman with soft lighting and minimalist corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyBxAaXqjeKzb8dLukoySbI6NiQMnUIGN3Tqf7GKl6IZAC7stcdWVncLmHG_nggxnlAikqr-YUmF4nW_vPPIUqAa19ZkLnibuY5hzMTUlSah7vXGWgV-gJ6N0n7bOdvWK5cMbwF9DYHX9lUCXSASzWbYG0_aoprSSr03XTZz_wLnT4gjwx4v54lscQ_L3pNqqR1C7YQ53HtwiYQsmkISwQxruB9RYuWSgJHiIl2TUNjs13YxKdLHFlxWvgL8P5YYKaCmn0YVlcXE"/>
+</div>
+<div>
+<h3 class="font-headline tracking-tight text-white text-lg">Ana IA</h3>
+<p class="font-label uppercase tracking-[0.1em] text-[10px] text-[#f2ca50]">Sistema Ativo</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="space-y-1">
+<a class="flex items-center gap-4 py-3 px-6 text-[#D4AF37] font-bold border-l-2 border-[#D4AF37] bg-white/5 transition-colors duration-300" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label uppercase tracking-widest text-xs">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="leads.html">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label uppercase tracking-widest text-xs">Leads</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="agenda.html">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label uppercase tracking-widest text-xs">Agenda</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="triagem.html">
+<span class="material-symbols-outlined">smart_screen</span>
+<span class="font-label uppercase tracking-widest text-xs">Triagem</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="configuracoes.html">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label uppercase tracking-widest text-xs">Configurações</span>
+</a>
+</nav>
+</div>
+<div class="px-8">
+<div class="text-xl font-bold text-[#D4AF37] tracking-tighter">Lorena</div>
+<p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">Advocacia</p>
+</div>
+</aside>
+
+    <main class="fade-in pl-72">
+        <header>
+            <div class="welcome">
+                <span>Bem-vinda de volta</span>
+                <h1>Escritório de<br>Advocacia Lorena</h1>
+            </div>
+            <button class="btn-signature" onclick="alert('Iniciando Triagem com Ana IA...')">+ Nova Triagem</button>
+        </header>
+
+        <div class="editorial-grid">
+            <!-- Coluna Principal -->
+            <div class="main-column">
+                <section>
+                    <h2>Visão Geral</h2>
+                    <div class="card">
+                        <div class="leads-stat">
+                            <div class="value">24</div>
+                            <div class="label">Leads Coletados<br><small style="color: #2ecc71">+25% hoje</small></div>
+                        </div>
+                        
+                        <div class="editorial-list">
+                            <div class="list-item">
+                                <div class="info">
+                                    <div class="title">Ricardo Mendonça</div>
+                                    <div class="subtitle">Consultoria Cível • 14:30</div>
+                                </div>
+                                <div class="tag-status">Agendado</div>
+                            </div>
+                            <div class="list-item">
+                                <div class="info">
+                                    <div class="title">Mariana Costa</div>
+                                    <div class="subtitle">Assinatura de Contrato • 16:45</div>
+                                </div>
+                                <div class="tag-status">Confirmado</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="ai-engine-box">
+                    <h3>Ana IA | Motor de Inteligência</h3>
+                    <p style="color: var(--text-main); font-weight: 300; font-size: 1.1rem; font-style: italic;">
+                        "Processando leads de alta cotação para o período vespertino. 3 novos casos prontos para sua revisão editorial."
+                    </p>
+                </div>
+            </div>
+
+            <!-- Coluna de Triagens -->
+            <div class="side-column">
+                <section>
+                    <h2>Triagens Recentes</h2>
+                    <div class="card" style="padding: 1.5rem;">
+                        <div class="triagem-card">
+                            <span class="id">ID: #89210 • Alberto Fontes</span>
+                            <p>Busca revisão de contrato imobiliário devido a cláusulas abusivas detectadas em auditoria interna...</p>
+                        </div>
+                        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 1.5rem 0;">
+                        <div class="triagem-card">
+                            <span class="id">ID: #89208 • Juliana Silveira</span>
+                            <p>Caso de sucessão familiar complexa. Documentação básica já enviada e validada pela Ana IA.</p>
+                        </div>
+                        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 1.5rem 0;">
+                        <div class="triagem-card">
+                            <span class="id">ID: #89195 • Pedro Henrique</span>
+                            <p>Dúvidas sobre tributação internacional para prestação de serviços no exterior. Score de urgência: Alto.</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

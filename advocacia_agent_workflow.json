@@ -1,0 +1,100 @@
+{
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "bbbb1234-abcd-9876-4321-facade123456",
+      "name": "Chat do n8n",
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1,
+      "position": [
+        200,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "model": "llama3-70b-8192",
+        "options": {
+          "temperature": 0.3
+        }
+      },
+      "id": "ddef1234-abcd-9876-4321-facade123456",
+      "name": "Groq (Llama 3)",
+      "type": "@n8n/n8n-nodes-langchain.lmChatGroq",
+      "typeVersion": 1,
+      "position": [
+        400,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "windowSize": 5
+      },
+      "id": "edef1234-abcd-9876-4321-facade123456",
+      "name": "Memória da Conversa",
+      "type": "@n8n/n8n-nodes-langchain.memoryBufferWindow",
+      "typeVersion": 1,
+      "position": [
+        550,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.chatInput }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "NOME DO AGENTE: Ana\nCARGO: Assistente da Dra. Lorena (Escritório de Advocacia).\n\nPERFIL E TOM DE VOZ:\n- Você é Ana, a assistente dedicada da Dra. Lorena.\n- Saudação: \"Olá, sou a Ana, assistente da Dra. Lorena. O que você precisa?\"\n- Seu tom é firme, elegante, prestativo e direto.\n- NUNCA use emojis. NUNCA diga que é uma inteligência artificial.\n- Evite gírias. Use um português impecável.\n\nOBJETIVOS DA CONVERSA (TRIAGEM):\n1. Saudação inicial como definido acima.\n2. Coletar o NOME COMPLETO do cliente.\n3. Coletar um RESUMO detalhado do problema jurídico.\n4. Informar que a Dra. Lorena analisará o relato pessoalmente para o agendamento da consulta.\n\nGUARDRAILS:\n- NÃO dê conselhos jurídicos. Diga: \"Apenas a Dra. Lorena pode avaliar o mérito do seu caso durante a consulta.\"\n- Não fale de valores sem a Dra. Lorena analisar."
+            }
+          ]
+        }
+      },
+      "id": "abcd1234-facd-9876-4321-facade123456",
+      "name": "Cérebro da Ana (UX)",
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.4,
+      "position": [
+        450,
+        300
+      ]
+    }
+  ],
+  "connections": {
+    "Chat do n8n": {
+      "main": [
+        [
+          {
+            "node": "Cérebro da Ana (UX)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Groq (Llama 3)": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Cérebro da Ana (UX)",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Memória da Conversa": {
+      "ai_memory": [
+        [
+          {
+            "node": "Cérebro da Ana (UX)",
+            "type": "ai_memory",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  }
+}

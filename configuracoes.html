@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Plus+Jakarta+Sans:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary": "#bfcdff",
+                    "surface-container-highest": "#353534",
+                    "on-tertiary-container": "#254188",
+                    "on-error": "#690005",
+                    "surface-tint": "#e9c349",
+                    "outline-variant": "#4d4635",
+                    "secondary-container": "#474746",
+                    "tertiary-container": "#97b0ff",
+                    "on-background": "#e5e2e1",
+                    "on-primary": "#3c2f00",
+                    "inverse-surface": "#e5e2e1",
+                    "surface": "#131313",
+                    "on-secondary": "#313030",
+                    "inverse-on-surface": "#313030",
+                    "primary-fixed-dim": "#e9c349",
+                    "on-tertiary-fixed-variant": "#27438a",
+                    "secondary-fixed-dim": "#c8c6c5",
+                    "secondary": "#c8c6c5",
+                    "background": "#131313",
+                    "tertiary-fixed": "#dbe1ff",
+                    "inverse-primary": "#735c00",
+                    "primary-container": "#d4af37",
+                    "on-primary-fixed": "#241a00",
+                    "surface-bright": "#3a3939",
+                    "primary-fixed": "#ffe088",
+                    "on-surface-variant": "#d0c5af",
+                    "on-primary-fixed-variant": "#574500",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#b4c5ff",
+                    "surface-container-low": "#1c1b1b",
+                    "secondary-fixed": "#e5e2e1",
+                    "outline": "#99907c",
+                    "on-secondary-fixed": "#1c1b1b",
+                    "surface-container": "#201f1f",
+                    "on-tertiary": "#082b72",
+                    "surface-variant": "#353534",
+                    "on-surface": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "error-container": "#93000a",
+                    "surface-container-high": "#2a2a2a",
+                    "primary": "#f2ca50",
+                    "on-tertiary-fixed": "#00174b",
+                    "on-secondary-fixed-variant": "#474746",
+                    "on-secondary-container": "#b7b5b4",
+                    "on-primary-container": "#554300",
+                    "error": "#ffb4ab"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader", "serif"],
+                    "body": ["Plus Jakarta Sans", "sans-serif"],
+                    "label": ["Plus Jakarta Sans", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #131313;
+            color: #e5e2e1;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .editorial-serif { font-family: 'Newsreader', serif; }
+        .technical-sans { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-row min-h-screen">
+<!-- NavigationDrawer -->
+<aside class="fixed left-0 top-0 h-full z-40 rounded-r-lg w-72 bg-neutral-900/40 backdrop-blur-3xl shadow-[0_0_40px_0_rgba(229,226,225,0.06)] pt-24 pb-8 flex flex-col justify-between">
+<div>
+<!-- Header Profile Section -->
+<div class="px-8 mb-12 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]/30">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a high-end legal executive woman with soft lighting and minimalist corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyBxAaXqjeKzb8dLukoySbI6NiQMnUIGN3Tqf7GKl6IZAC7stcdWVncLmHG_nggxnlAikqr-YUmF4nW_vPPIUqAa19ZkLnibuY5hzMTUlSah7vXGWgV-gJ6N0n7bOdvWK5cMbwF9DYHX9lUCXSASzWbYG0_aoprSSr03XTZz_wLnT4gjwx4v54lscQ_L3pNqqR1C7YQ53HtwiYQsmkISwQxruB9RYuWSgJHiIl2TUNjs13YxKdLHFlxWvgL8P5YYKaCmn0YVlcXE"/>
+</div>
+<div>
+<h3 class="font-headline tracking-tight text-on-surface text-lg">Ana IA</h3>
+<p class="font-label uppercase tracking-[0.1em] text-[10px] text-primary">Sistema Ativo</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="space-y-1">
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label uppercase tracking-widest text-xs">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="leads.html">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label uppercase tracking-widest text-xs">Leads</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="agenda.html">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label uppercase tracking-widest text-xs">Agenda</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="triagem.html">
+<span class="material-symbols-outlined">smart_screen</span>
+<span class="font-label uppercase tracking-widest text-xs">Triagem</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-[#D4AF37] font-bold border-l-2 border-[#D4AF37] bg-white/5 transition-colors duration-300" href="configuracoes.html">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label uppercase tracking-widest text-xs">Configurações</span>
+</a>
+</nav>
+</div>
+<div class="px-8">
+<div class="text-xl font-bold text-[#D4AF37] tracking-tighter">Lorena</div>
+<p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">Advocacia</p>
+</div>
+</aside>
+
+<!-- TopAppBar -->
+<header class="bg-[#131313]/70 backdrop-blur-md fixed top-0 left-72 right-0 z-50 flex justify-between items-center px-6 h-16 shadow-[0px_20px_40px_rgba(212,175,55,0.06)]">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#f2ca50]">menu_open</span>
+<h1 class="text-lg font-serif uppercase tracking-[0.2em] text-[#d4af37] editorial-serif">ESCRITÓRIO LORENA</h1>
+</div>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-[#d4af37]/20">
+<img alt="Legal Partner Profile" class="w-full h-full object-cover" data-alt="portrait of a professional female lawyer in a dark studio setting with soft amber lighting, sophisticated and authoritative" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoEGFWO-IoCAHGUGT84vAg5XbCp68alLifLWM3GpKT_U8qO8oLikM3-3xcHGOY0Ztnm2gJAOHc3iEDjd7aAuDlrk016wi3HsnbW5T8hNiEVQ8pXAC2VrTg7woDRwuu2YncoAjTvER-Tu-DqyxZ8LEnNTsQluA3l7Rey11zoOkkbHoJUGhXEWJ7s7anTL9i9kLaETb6I8pbQITomsuzBz4QrUv20jwGvG1Odo-5Aatz7QEKDLJUkkijmEj7kv_05BCX20XnSxEuwaI"/>
+</div>
+</header>
+<main class="flex-1 pl-72 mt-20 px-8 space-y-8 pb-12">
+<!-- Section Title -->
+<div class="py-4">
+<h2 class="editorial-serif text-3xl font-medium tracking-tight text-[#f2ca50]">Configurações</h2>
+<p class="technical-sans text-[11px] uppercase tracking-[0.15em] text-on-surface-variant/60">Gestão Administrativa &amp; Preferências</p>
+</div>
+<!-- Bento Grid Structure -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Profile Card -->
+<div class="bg-surface-container-low p-6 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-6xl text-primary">gavel</span>
+</div>
+<div class="flex items-center gap-5 relative z-10">
+<div class="w-20 h-20 rounded-xl overflow-hidden shadow-2xl">
+<img alt="Dra. Lorena Duarte" class="w-full h-full object-cover" data-alt="Close up portrait of a confident female lawyer with dark hair and elegant business attire against a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMybTjnLsXCK5lCoOUXmk4BZQFYm3UDZFSTPpgpguJf4OtZqrkxkpXVw2GFNggI7rGDF3ODrJ7-dc2YQxwxDPov7GYN0i8wHGPVq8SV17AMkX8Loatf_17oJvRQFnc9i62WekxMm7KPv_F4zsdZ7bBoqd22_XwC4x0kC83-l863CZlFvFD7Wadhkju6VMtwD7hJUrfvONu4u2AarPDDeGP0tSdh4tSYvHuN6_WUdtoU-iburTbaSwNSdzTkhXN3JRGv51jgsor9Lg"/>
+</div>
+<div class="space-y-1">
+<h3 class="editorial-serif text-2xl font-semibold leading-none">Dra. Lorena Duarte</h3>
+<p class="technical-sans text-[10px] tracking-widest text-primary/80 font-bold">OAB SP 452.981</p>
+<div class="flex items-center gap-2 pt-2">
+<span class="inline-block w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="technical-sans text-[11px] text-on-surface-variant">Sócio-Diretora</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Ana IA Personality Card -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-6">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h3 class="technical-sans text-xs font-bold tracking-[0.1em] uppercase">Personalidade Ana IA</h3>
+</div>
+<span class="technical-sans text-[10px] text-primary/60">v4.2.0</span>
+</div>
+<div class="space-y-8 py-2">
+<!-- Slider 1 -->
+<div class="space-y-3">
+<div class="flex justify-between technical-sans text-[10px] tracking-widest text-on-surface-variant">
+<span>CORDIAL</span>
+<span>FORMAL</span>
+</div>
+<div class="relative h-1 bg-surface-container-highest rounded-full">
+<div class="absolute h-full w-1/3 bg-gradient-to-r from-primary to-primary-container rounded-full left-1/3"></div>
+<div class="absolute top-1/2 left-2/3 -translate-y-1/2 w-4 h-4 bg-primary rounded-full shadow-[0px_0px_15px_rgba(242,202,80,0.4)]"></div>
+</div>
+</div>
+<!-- Slider 2 -->
+<div class="space-y-3">
+<div class="flex justify-between technical-sans text-[10px] tracking-widest text-on-surface-variant">
+<span>CONCILIADORA</span>
+<span>ASSERTIVA</span>
+</div>
+<div class="relative h-1 bg-surface-container-highest rounded-full">
+<div class="absolute h-full w-2/3 bg-gradient-to-r from-primary to-primary-container rounded-full left-0"></div>
+<div class="absolute top-1/2 left-2/3 -translate-y-1/2 w-4 h-4 bg-primary rounded-full shadow-[0px_0px_15px_rgba(242,202,80,0.4)]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Operation Hours Card -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">schedule</span>
+<h3 class="technical-sans text-xs font-bold tracking-[0.1em] uppercase">Horário de Triagem</h3>
+</div>
+<div class="grid grid-cols-7 gap-2">
+<!-- Day Items -->
+<div class="flex flex-col items-center gap-2">
+<span class="technical-sans text-[9px] text-on-surface-variant/50">S</span>
+<div class="w-full h-12 bg-surface-container-highest/30 rounded-lg"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="technical-sans text-[9px] text-primary">T</span>
+<div class="w-full h-12 bg-gradient-to-b from-primary/40 to-primary/10 rounded-lg border-t border-primary/30"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="technical-sans text-[9px] text-primary">Q</span>
+<div class="w-full h-12 bg-gradient-to-b from-primary/40 to-primary/10 rounded-lg border-t border-primary/30"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="technical-sans text-[9px] text-primary">Q</span>
+<div class="w-full h-12 bg-gradient-to-b from-primary/40 to-primary/10 rounded-lg border-t border-primary/30"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="technical-sans text-[9px] text-primary">S</span>
+<div class="w-full h-12 bg-gradient-to-b from-primary/40 to-primary/10 rounded-lg border-t border-primary/30"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="technical-sans text-[9px] text-primary">S</span>
+<div class="w-full h-12 bg-gradient-to-b from-primary/40 to-primary/10 rounded-lg border-t border-primary/30"></div>
+</div>
+<div class="flex flex-col items-center gap-2">
+<span class="technical-sans text-[9px] text-on-surface-variant/50">D</span>
+<div class="w-full h-12 bg-surface-container-highest/30 rounded-lg"></div>
+</div>
+</div>
+<div class="pt-4 flex justify-between items-end">
+<div>
+<p class="editorial-serif text-xl">09:00 — 18:30</p>
+<p class="technical-sans text-[10px] text-on-surface-variant/60 uppercase tracking-widest">Segunda a Sexta-feira</p>
+</div>
+<button class="bg-surface-container-highest text-primary technical-sans text-[10px] font-bold px-4 py-2 rounded-lg hover:bg-primary hover:text-on-primary transition-all">EDITAR</button>
+</div>
+</div>
+<!-- Connectivity Card -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">hub</span>
+<h3 class="technical-sans text-xs font-bold tracking-[0.1em] uppercase">Conectividade &amp; Integrações</h3>
+</div>
+<div class="space-y-4">
+<!-- Integration 1 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest/50">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-surface-container-highest rounded-lg">
+<span class="material-symbols-outlined text-lg">calendar_month</span>
+</div>
+<div>
+<h4 class="technical-sans text-[11px] font-bold">Google Calendar</h4>
+<p class="technical-sans text-[10px] text-on-surface-variant/60">Sincronização de Agenda</p>
+</div>
+</div>
+<span class="text-[9px] technical-sans font-bold text-[#f2ca50] bg-primary/10 px-2 py-1 rounded-full uppercase tracking-tighter">Active</span>
+</div>
+<!-- Integration 2 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest/50">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-surface-container-highest rounded-lg">
+<span class="material-symbols-outlined text-lg">alt_route</span>
+</div>
+<div>
+<h4 class="technical-sans text-[11px] font-bold">n8n Workflow</h4>
+<p class="technical-sans text-[10px] text-on-surface-variant/60">Automação de Processos</p>
+</div>
+</div>
+<span class="text-[9px] technical-sans font-bold text-[#f2ca50] bg-primary/10 px-2 py-1 rounded-full uppercase tracking-tighter">Online</span>
+</div>
+<!-- Integration 3 -->
+<div class="flex items-center justify-between p-3 rounded-xl bg-surface-container-lowest/50">
+<div class="flex items-center gap-3">
+<div class="p-2 bg-surface-container-highest rounded-lg">
+<span class="material-symbols-outlined text-lg">table_view</span>
+</div>
+<div>
+<h4 class="technical-sans text-[11px] font-bold">Google Sheets</h4>
+<p class="technical-sans text-[10px] text-on-surface-variant/60">Base de Dados Externa</p>
+</div>
+</div>
+<span class="text-[9px] technical-sans font-bold text-on-surface-variant/40 bg-surface-container-highest px-2 py-1 rounded-full uppercase tracking-tighter">Paused</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Extra Settings -->
+<div class="space-y-3 pt-6 pb-8">
+<h4 class="technical-sans text-[10px] font-bold tracking-[0.2em] text-on-surface-variant/40 uppercase">Preferências de Sistema</h4>
+<div class="bg-surface-container-low rounded-xl overflow-hidden divide-y divide-[#353534]/15">
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+<span class="technical-sans text-sm">Notificações Push</span>
+</div>
+<div class="w-10 h-5 bg-primary/20 rounded-full relative">
+<div class="absolute right-0.5 top-0.5 w-4 h-4 bg-primary rounded-full"></div>
+</div>
+</div>
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">security</span>
+<span class="technical-sans text-sm">Segurança &amp; Biometria</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant/40">chevron_right</span>
+</div>
+<div class="p-4 flex items-center justify-between hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-on-surface-variant">translate</span>
+<span class="technical-sans text-sm">Idioma</span>
+</div>
+<span class="technical-sans text-xs text-primary">Português (BR)</span>
+</div>
+</div>
+</div>
+</main>
+<!-- NavigationDrawer (Suppressed based on Task Context, rendering BottomNavBar instead) -->
+
+<!-- Decorative Grain Texture -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03] mix-blend-overlay z-[100] bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+</body></html>

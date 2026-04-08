@@ -1,0 +1,8 @@
+{
+  "name": "amanda",
+  "version": "1.0.0",
+  "description": "Skill de Assistente Jurídica Executiva para triagem e gestão de leads.",
+  "author": "Antigravity & Parceiro",
+  "capabilities": ["triagem", "atendimento", "agendamento"],
+  "platforms": ["n8n", "WhatsApp"]
+}

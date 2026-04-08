@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-br"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lorena Advocacia | Triagem Estratégica</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-fixed": "#00174b",
+                    "surface-container-highest": "#353534",
+                    "on-error-container": "#ffdad6",
+                    "tertiary-fixed-dim": "#b4c5ff",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-container-low": "#1c1b1b",
+                    "surface": "#131313",
+                    "on-tertiary-fixed-variant": "#27438a",
+                    "secondary-container": "#544519",
+                    "surface-container-high": "#2a2a2a",
+                    "on-error": "#690005",
+                    "on-primary-container": "#554300",
+                    "inverse-on-surface": "#313030",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-tertiary-container": "#254188",
+                    "on-surface-variant": "#d0c5af",
+                    "on-primary": "#3c2f00",
+                    "on-secondary-fixed-variant": "#544519",
+                    "inverse-primary": "#735c00",
+                    "primary-fixed": "#ffe088",
+                    "on-secondary": "#3c2f05",
+                    "surface-variant": "#353534",
+                    "surface-bright": "#393939",
+                    "surface-dim": "#131313",
+                    "error": "#ffb4ab",
+                    "tertiary": "#bfcdff",
+                    "on-secondary-container": "#c8b37d",
+                    "on-tertiary": "#082b72",
+                    "secondary": "#dac58d",
+                    "surface-container": "#201f1f",
+                    "inverse-surface": "#e5e2e1",
+                    "secondary-fixed": "#f7e1a6",
+                    "outline-variant": "#4d4635",
+                    "primary": "#f2ca50",
+                    "surface-tint": "#e9c349",
+                    "on-background": "#e5e2e1",
+                    "on-primary-fixed": "#241a00",
+                    "secondary-fixed-dim": "#dac58d",
+                    "tertiary-container": "#97b0ff",
+                    "primary-fixed-dim": "#e9c349",
+                    "error-container": "#93000a",
+                    "on-surface": "#e5e2e1",
+                    "tertiary-fixed": "#dbe1ff",
+                    "primary-container": "#d4af37",
+                    "outline": "#99907c",
+                    "background": "#131313"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Newsreader"],
+                    "body": ["Plus Jakarta Sans"],
+                    "label": ["Plus Jakarta Sans"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #F2CA50 0%, #D4AF37 100%);
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30 overflow-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-full z-50 flex justify-between items-center px-8 h-20 bg-[#131313]/80 backdrop-blur-xl border-b-2 border-neutral-800">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-[#D4AF37] cursor-pointer active:scale-98">menu</span>
+<h1 class="font-headline text-2xl text-[#D4AF37]">Triagem Estratégica</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-2 py-1.5 px-4 rounded-full bg-surface-container-high border border-primary/20">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-label text-xs font-bold uppercase tracking-widest text-[#D4AF37]">Ana IA Online</span>
+</div>
+</div>
+</header>
+<!-- NavigationDrawer -->
+<aside class="fixed left-0 top-0 h-full z-40 rounded-r-lg w-72 bg-neutral-900/40 backdrop-blur-3xl shadow-[0_0_40px_0_rgba(229,226,225,0.06)] pt-24 pb-8 flex flex-col justify-between">
+<div>
+<!-- Header Profile Section -->
+<div class="px-8 mb-12 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]/30">
+<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a high-end legal executive woman with soft lighting and minimalist corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyBxAaXqjeKzb8dLukoySbI6NiQMnUIGN3Tqf7GKl6IZAC7stcdWVncLmHG_nggxnlAikqr-YUmF4nW_vPPIUqAa19ZkLnibuY5hzMTUlSah7vXGWgV-gJ6N0n7bOdvWK5cMbwF9DYHX9lUCXSASzWbYG0_aoprSSr03XTZz_wLnT4gjwx4v54lscQ_L3pNqqR1C7YQ53HtwiYQsmkISwQxruB9RYuWSgJHiIl2TUNjs13YxKdLHFlxWvgL8P5YYKaCmn0YVlcXE"/>
+</div>
+<div>
+<h3 class="font-headline tracking-tight text-on-surface text-lg">Ana IA</h3>
+<p class="font-label uppercase tracking-[0.1em] text-[10px] text-primary">Sistema Ativo</p>
+</div>
+</div>
+<!-- Navigation Links -->
+<nav class="space-y-1">
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="index.html">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label uppercase tracking-widest text-xs">Dashboard</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="leads.html">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label uppercase tracking-widest text-xs">Leads</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="agenda.html">
+<span class="material-symbols-outlined">calendar_month</span>
+<span class="font-label uppercase tracking-widest text-xs">Agenda</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="triagem.html">
+<span class="material-symbols-outlined">smart_screen</span>
+<span class="font-label uppercase tracking-widest text-xs">Triagem</span>
+</a>
+<a class="flex items-center gap-4 py-3 px-6 text-[#D4AF37] font-bold border-l-2 border-[#D4AF37] bg-white/5 transition-colors duration-300" href="configuracoes.html">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label uppercase tracking-widest text-xs">Configurações</span>
+</a>
+</nav>
+</div>
+<div class="px-8">
+<div class="text-xl font-bold text-[#D4AF37] tracking-tighter">Lorena</div>
+<p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">Advocacia</p>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="pl-72 pt-20 h-screen flex">
+<!-- Chat Zone (Central) -->
+<section class="flex-1 flex flex-col border-r border-neutral-800 bg-surface">
+<div class="flex-1 overflow-y-auto p-12 no-scrollbar space-y-12">
+<!-- AI Message -->
+<div class="flex gap-6 max-w-2xl">
+<div class="flex-shrink-0 w-8 h-8 rounded-full gold-gradient-bg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div class="space-y-4">
+<div class="p-6 rounded-xl bg-surface-container-low border border-[#D4AF37]/30 shadow-2xl">
+<p class="font-body text-on-surface leading-relaxed">
+                                Saudações. Sou a Ana IA. Analisei os documentos preliminares enviados por <span class="text-primary font-bold">Roberto Almeida</span>. O caso apresenta elementos críticos de Direito Civil com potencial urgência. 
+                                <br/><br/>
+                                Roberto, poderia detalhar o momento exato em que a notificação foi recebida?
+                            </p>
+</div>
+<p class="font-label text-[10px] uppercase tracking-widest text-neutral-500 ml-1">Ana IA • 09:42 AM</p>
+</div>
+</div>
+<!-- User Message -->
+<div class="flex gap-6 max-w-2xl ml-auto flex-row-reverse">
+<div class="flex-shrink-0 w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-neutral-400 text-sm">person</span>
+</div>
+<div class="space-y-4 text-right">
+<div class="p-6 rounded-xl bg-surface-container-high text-on-surface">
+<p class="font-body leading-relaxed">
+                                Recebi a notificação oficial ontem, às 16h45, via oficial de justiça. Eles alegam quebra de contrato unilateral.
+                            </p>
+</div>
+<p class="font-label text-[10px] uppercase tracking-widest text-neutral-500 mr-1">Roberto Almeida • 09:44 AM</p>
+</div>
+</div>
+<!-- AI Thinking Indicator -->
+<div class="flex gap-6 max-w-2xl">
+<div class="flex-shrink-0 w-8 h-8 rounded-full gold-gradient-bg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary text-sm">auto_awesome</span>
+</div>
+<div class="p-6 rounded-xl bg-surface-container-low border border-[#D4AF37]/10 flex gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-primary/40 animate-bounce"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary/60 animate-bounce" style="animation-delay: 0.2s"></span>
+<span class="w-1.5 h-1.5 rounded-full bg-primary/80 animate-bounce" style="animation-delay: 0.4s"></span>
+</div>
+</div>
+</div>
+<!-- Input Area -->
+<div class="p-8 bg-surface-container-low/50 backdrop-blur-md">
+<div class="max-w-4xl mx-auto relative">
+<textarea class="w-full bg-transparent border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 font-body text-on-surface placeholder-neutral-600 pb-4 resize-none transition-all duration-300" placeholder="Interaja com a Triagem ou adicione notas estratégicas..." rows="1"></textarea>
+<div class="absolute right-0 bottom-4 flex gap-4">
+<button class="p-2 text-neutral-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<button class="flex items-center gap-2 gold-gradient-bg px-6 py-2 rounded-lg text-on-primary font-label text-xs font-bold uppercase tracking-widest active:scale-95 transition-transform">
+                            Enviar <span class="material-symbols-outlined text-sm">send</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Insights Panel (Dossiê em Construção) -->
+<section class="w-[420px] bg-surface-container-lowest p-8 flex flex-col gap-8 overflow-y-auto no-scrollbar">
+<header>
+<p class="font-label text-[10px] uppercase tracking-[0.2em] text-primary mb-2">Monitoramento Ativo</p>
+<h2 class="font-headline text-3xl text-on-surface">Dossiê em Construção</h2>
+</header>
+<div class="space-y-6">
+<!-- Bento Card: Identificação -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-neutral-800 group hover:border-[#D4AF37]/20 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[10px] uppercase tracking-widest text-neutral-500">Identificação</span>
+<span class="material-symbols-outlined text-primary text-xl">account_circle</span>
+</div>
+<h4 class="font-headline text-xl text-on-surface">Roberto Almeida</h4>
+<p class="text-xs text-neutral-500 font-label mt-1">CPF: ***.492.118-**</p>
+</div>
+<!-- Bento Card: Urgência -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-neutral-800 group hover:border-[#D4AF37]/20 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[10px] uppercase tracking-widest text-neutral-500">Urgência</span>
+<span class="material-symbols-outlined text-error text-xl">priority_high</span>
+</div>
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-error-container/20 border border-error-container/40">
+<span class="font-label text-xs font-bold uppercase tracking-widest text-error">Alta Prioridade</span>
+</div>
+<p class="text-xs text-neutral-500 font-label mt-3">Prazo Processual: 48 horas restantes</p>
+</div>
+<!-- Bento Card: Resumo -->
+<div class="p-6 rounded-xl bg-surface-container-low border border-neutral-800 group hover:border-[#D4AF37]/20 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="font-label text-[10px] uppercase tracking-widest text-neutral-500">Resumo do Caso</span>
+<span class="material-symbols-outlined text-primary text-xl">description</span>
+</div>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                        Controvérsia contratual envolvendo fornecimento de insumos industriais. A parte contrária alega inadimplemento e busca rescisão imediata com aplicação de multa punitiva de 25% sobre o valor global.
+                    </p>
+</div>
+<!-- Bento Card: Evidências -->
+<div class="p-1 rounded-xl bg-surface-container-low border border-neutral-800 overflow-hidden">
+<img alt="Legal documents on dark desk" class="w-full h-32 object-cover rounded-lg opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer" data-alt="dramatic close-up of legal documents and a luxury pen on a dark wood desk with cinematic side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHxqrx7LdH-9T3l7IazMoUtj8vCfvf5SMSSV1pjFdtCZzTNy1Amyjzr0MNHHbhKG9CZju4gMffYCNrmZU2FEtLL1bL7_Fcb3eHQg_VmTjanFbP_cEw3fA4m03UIhAoJaqyijgHlaACZ8mD6OQhwP47wTjTrO3onBSEQeAxL4xRdy500yfvIDX7PZ8Jk2XW3ThN5DhCCELGDlTNUf0NI5hhV-fMU4RPvusXmaKNagl2IuDG6Dkb5XtU_uIbJDzvTWag-mxRBl6lo7g"/>
+<div class="p-4">
+<div class="flex justify-between items-center">
+<span class="font-label text-[10px] uppercase tracking-widest text-neutral-500">Documentação</span>
+<span class="text-xs text-primary font-bold">2 Arquivos</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="fixed bottom-4 right-8 z-10 bg-transparent flex flex-col items-end gap-1">
+<p class="font-label text-[10px] tracking-widest uppercase text-neutral-500">
+            Powered by <span class="text-[#D4AF37] font-bold">Ana IA</span>
+</p>
+<div class="flex gap-4">
+<a class="font-label text-[8px] tracking-widest uppercase text-neutral-600 hover:text-[#F2CA50] transition-colors" href="#">Terms of Service</a>
+<a class="font-label text-[8px] tracking-widest uppercase text-neutral-600 hover:text-[#F2CA50] transition-colors" href="#">Privacy Policy</a>
+</div>
+</footer>
+</body></html>
