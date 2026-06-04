@@ -1,369 +1,792 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ana IA | Gestão Jurídica Premium</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              headline: ["Newsreader", "serif"],
-              body: ["Plus Jakarta Sans", "sans-serif"],
-              label: ["Plus Jakarta Sans", "sans-serif"]
-            }
-          }
-        }
-      }
-    </script>
+    <title>GeradorDeTabelas - Crie sua tabela para Instagram</title>
+    <!-- AdSense Placeholder - The script tag will go here -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-obsidian: #131313;
-            --surface-low: #1C1B1B;
-            --surface-high: #353534;
-            --surface-bright: #3a3939;
-            --gold-primary: #D4AF37;
-            --gold-gradient: linear-gradient(135deg, #F2CA50 0%, #D4AF37 100%);
-            --text-main: #E5E2E1;
-            --text-muted: #A0A0A0;
-            --gold-dust: 0px 20px 40px rgba(212, 175, 55, 0.06);
-            --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary-bg: #f8f9fa;
+            --panel-bg: #ffffff;
+            --border-color: #e2e8f0;
+            --text-dark: #2b2b2b;
+            --text-muted: #666;
+            
+            /* Variáveis Temáticas do Preview (Começa com Rosa) */
+            --theme-primary: #c4868f;
+            --theme-light: #e8c5cb;
+            --theme-pale: #f5e0e3;
+            --theme-hero: #d4a5a5;
         }
 
         body {
-            background-color: var(--bg-obsidian);
-            color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background: var(--primary-bg);
+            margin: 0;
+            padding: 0;
             display: flex;
-            overflow: hidden;
-            letter-spacing: -0.01em;
+            height: 100vh;
+            overflow: hidden; 
         }
 
-        /* Typography */
-        h1, h2, h3, .serif {
-            font-family: 'Newsreader', serif;
-            font-weight: 600;
-        }
-
-        /* Main Editorial Content */
-        main {
-            flex: 1;
-            padding: 4rem 5rem;
-            overflow-y: auto;
-            position: relative;
-        }
-
-        header {
+        .app-container {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 5rem;
+            width: 100%;
+            height: 100%;
         }
 
-        header .welcome {
-            max-width: 600px;
-        }
-
-        header .welcome span {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            color: var(--gold-primary);
-        }
-
-        header h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            margin-top: 0.5rem;
-        }
-
-        .btn-signature {
-            background: var(--gold-gradient);
-            color: #000;
-            border: none;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.4s var(--transition-smooth);
-            font-size: 0.95rem;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.1);
-        }
-
-        .btn-signature:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
-        }
-
-        /* Sovereign Grid (Asymmetric) */
-        .editorial-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-        }
-
-        section h2 {
-            font-size: 1.75rem;
-            margin-bottom: 2rem;
-            color: var(--text-main);
-        }
-
-        /* Tonal Cards */
-        .card {
-            background-color: var(--surface-low);
-            padding: 2.5rem;
-            border-radius: 12px;
-            transition: 0.4s var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            background-color: var(--surface-high);
-            box-shadow: var(--gold-dust);
-            transform: translateY(-5px);
-        }
-
-        /* Leads do Dia Stats */
-        .leads-stat {
+        .sidebar {
+            width: 400px;
+            flex-shrink: 0;
+            height: 100%; 
+            background: var(--panel-bg);
+            border-right: 1px solid var(--border-color);
             display: flex;
-            align-items: baseline;
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            flex-direction: column;
+            overflow-y: auto; 
+            box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+            z-index: 10;
         }
 
-        .leads-stat .value {
-            font-size: 4rem;
-            color: var(--gold-primary);
-            line-height: 1;
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 20;
         }
 
-        .leads-stat .label {
-            font-size: 1.1rem;
+        .sidebar-header h1 {
+            margin: 0;
+            font-size: 22px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+        .sidebar-header p {
+            margin: 5px 0 0;
+            font-size: 13px;
             color: var(--text-muted);
         }
 
-        /* List Items (Gallery Approach) */
-        .editorial-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
+        .adsense-placeholder-small {
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            margin: 15px 20px 0;
+            padding: 15px;
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+            border-radius: 6px;
         }
 
-        .list-item {
-            padding: 1.5rem;
-            border-radius: 12px;
-            transition: 0.3s;
-            cursor: pointer;
+        .form-section {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-section h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+            background: #fff;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--theme-primary);
+        }
+
+        #servicesList {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .service-input-row {
+            display: flex;
+            gap: 10px;
             align-items: center;
         }
 
-        .list-item:hover {
-            background: var(--surface-high);
+        .service-input-row input[type="text"] {
+            flex: 2;
+        }
+        .service-input-row input[type="text"].price-input {
+            flex: 1;
         }
 
-        .list-item .info {
+        .btn-remove {
+            background: #ffe4e6;
+            color: #e11d48;
+            border: none;
+            border-radius: 6px;
+            width: 36px;
+            height: 36px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        .btn-remove:hover { background: #fecdd3; }
+
+        .btn-add {
+            width: 100%;
+            padding: 10px;
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px dashed #cbd5e1;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .btn-add:hover { background: #e2e8f0; }
+
+        .download-section {
+            padding: 20px;
+            background: #fff;
+            position: sticky;
+            bottom: 0;
+            border-top: 1px solid var(--border-color);
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.02);
+            z-index: 20;
+        }
+
+        .btn-download {
+            width: 100%;
+            padding: 14px;
+            background: var(--theme-primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            box-shadow: 0 4px 12px rgba(0,0,0, 0.15);
+        }
+        .btn-download:hover { opacity: 0.85; }
+
+        .preview-area {
+            flex: 1;
+            height: 100%; 
+            display: block;
+            overflow-y: auto; 
+            padding: 40px;
+            background: var(--primary-bg);
+            box-sizing: border-box;
+        }
+
+        .adsense-placeholder-large {
+            width: 100%;
+            max-width: 728px;
+            height: 90px;
+            background: #e2e8f0;
+            border: 2px dashed #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-weight: 600;
+            border-radius: 8px;
+            margin: 0 auto 30px auto;
+            flex-shrink: 0;
+        }
+
+        .canvas-wrapper {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+            margin: 0 auto 40px auto;
+            width: max-content;
+            overflow: hidden;
+        }
+
+        /* === DESIGN BASE DO CAPTURE CONTAINER === */
+        #capture-container {
+            background: #faf5f3; /* Cor de fundo fixa pra garantir bom contraste */
+            position: relative;
+            display: flex;
+            box-sizing: border-box;
+            transition: all 0.4s ease;
+        }
+
+        /* Elementos compartilhados */
+        .hero-photo {
+            background-color: var(--theme-hero);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.3s;
+        }
+        .hero-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            display: none;
+        }
+        
+        #heroPlaceholder {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: white;
+            font-family: 'Jost', sans-serif;
+            opacity: 0.8;
+            text-align: center;
         }
 
-        .list-item .title {
-            font-size: 1.1rem;
-            color: var(--gold-primary);
-            font-family: 'Newsreader', serif;
+        .initials-circle {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: var(--theme-pale); 
+            border: 3px solid var(--theme-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        .initials-circle span {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            font-weight: 600;
+            color: var(--theme-primary);
+            letter-spacing: 2px;
+            transition: color 0.3s;
         }
 
-        .list-item .subtitle {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 400px;
         }
 
-        .tag-status {
-            font-size: 0.7rem;
+        /* === 1. LAYOUT CLASSIC (Vertical com foto no topo) === */
+        .layout-classic {
+            width: 540px;
+            flex-direction: column;
+        }
+        .layout-classic .hero-photo {
+            width: 100%;
+            height: 380px;
+        }
+        .layout-classic .initials-circle {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 335px; 
+        }
+        .layout-classic .content-area {
+            padding: 60px 40px 30px 40px; 
+        }
+
+        /* === 2. LAYOUT SIDE (Lado a Lado Horizontal) === */
+        .layout-side {
+            width: 800px;
+            flex-direction: row;
+            align-items: stretch; /* Faz a foto esticar junto com o conteúdo */
+        }
+        .layout-side .hero-photo {
+            width: 350px;
+            flex-shrink: 0;
+            /* height auto adaptará pelo stretch */
+        }
+        .layout-side .initials-circle {
+            position: absolute;
+            left: 350px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .layout-side .content-area {
+            flex: 1;
+            padding: 50px 40px 30px 60px; /* Mais espaço na esquerda por causa do circulo */
+            justify-content: center;
+        }
+
+        /* === 3. LAYOUT MINIMAL (Sem foto, limpo) === */
+        .layout-minimal {
+            width: 540px;
+            flex-direction: column;
+            padding-top: 40px;
+            background: var(--theme-pale) !important; /* Usa o fundo do tema */
+        }
+        .layout-minimal .hero-photo {
+            display: none !important;
+        }
+        .layout-minimal .initials-circle {
+            position: relative;
+            margin: 0 auto 20px auto;
+            background: #fff; /* Inverte a cor pra destacar no fundo claro */
+        }
+        .layout-minimal .content-area {
+            padding: 20px 40px 40px 40px; 
+        }
+
+
+        /* Detalhes de tipografia compartilhados */
+        .salon-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 30px;
+            font-weight: 700;
+            color: #2b2b2b;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            letter-spacing: 0.05rem;
-            background: rgba(212, 175, 55, 0.1);
-            color: var(--gold-primary);
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-
-        /* Successions Card (Triages) */
-        .triagem-card {
-            margin-bottom: 2rem;
-        }
-
-        .triagem-card .id {
-            font-size: 0.75rem;
-            color: var(--gold-primary);
+            text-align: center;
             margin-bottom: 8px;
-            display: block;
+            word-break: break-word;
         }
 
-        .triagem-card p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-main);
-            font-weight: 300;
+        .contact-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-family: 'Jost', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: #999;
+            margin-bottom: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
-
-        /* AI Módulo */
-        .ai-engine-box {
-            background-color: #0E0E0E; /* Deep inset feel */
-            border: 1px solid rgba(255,255,255,0.03);
-            border-radius: 16px;
-            padding: 2rem;
-            margin-top: 3rem;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
+        .contact-item svg { width: 14px; height: 14px; color: #999; flex-shrink: 0; }
 
-        .ai-engine-box h3 {
-            font-size: 1rem;
-            color: var(--text-muted);
+        .services {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 5px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .service-row:last-child { border-bottom: none; }
+        
+        .service-name {
+            font-family: 'Jost', sans-serif;
+            font-weight: 500;
+            font-size: 15px;
+            color: #333;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 0.1rem;
-            margin-bottom: 1.5rem;
+        }
+        .service-price {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 22px;
+            color: var(--theme-primary);
+            font-style: italic;
+            white-space: nowrap;
+            transition: color 0.3s;
         }
 
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s var(--transition-smooth) forwards;
+        .footer-info {
+            margin-top: auto;
+            padding-top: 40px;
+            padding-bottom: 25px;
+            text-align: center;
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 4px;
+            color: #aaa;
+            text-transform: uppercase;
         }
 
     </style>
 </head>
 <body>
-<!-- NavigationDrawer -->
-<aside class="fixed left-0 top-0 h-full z-40 rounded-r-lg w-72 bg-neutral-900/40 backdrop-blur-3xl shadow-[0_0_40px_0_rgba(229,226,225,0.06)] pt-24 pb-8 flex flex-col justify-between">
-<div>
-<!-- Header Profile Section -->
-<div class="px-8 mb-12 flex items-center gap-4">
-<div class="w-12 h-12 rounded-full overflow-hidden border border-[#D4AF37]/30">
-<img alt="User profile" class="w-full h-full object-cover" data-alt="professional portrait of a high-end legal executive woman with soft lighting and minimalist corporate background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiyBxAaXqjeKzb8dLukoySbI6NiQMnUIGN3Tqf7GKl6IZAC7stcdWVncLmHG_nggxnlAikqr-YUmF4nW_vPPIUqAa19ZkLnibuY5hzMTUlSah7vXGWgV-gJ6N0n7bOdvWK5cMbwF9DYHX9lUCXSASzWbYG0_aoprSSr03XTZz_wLnT4gjwx4v54lscQ_L3pNqqR1C7YQ53HtwiYQsmkISwQxruB9RYuWSgJHiIl2TUNjs13YxKdLHFlxWvgL8P5YYKaCmn0YVlcXE"/>
-</div>
-<div>
-<h3 class="font-headline tracking-tight text-white text-lg">Ana IA</h3>
-<p class="font-label uppercase tracking-[0.1em] text-[10px] text-[#f2ca50]">Sistema Ativo</p>
-</div>
-</div>
-<!-- Navigation Links -->
-<nav class="space-y-1">
-<a class="flex items-center gap-4 py-3 px-6 text-[#D4AF37] font-bold border-l-2 border-[#D4AF37] bg-white/5 transition-colors duration-300" href="index.html">
-<span class="material-symbols-outlined">dashboard</span>
-<span class="font-label uppercase tracking-widest text-xs">Dashboard</span>
-</a>
-<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="leads.html">
-<span class="material-symbols-outlined">group</span>
-<span class="font-label uppercase tracking-widest text-xs">Leads</span>
-</a>
-<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="agenda.html">
-<span class="material-symbols-outlined">calendar_month</span>
-<span class="font-label uppercase tracking-widest text-xs">Agenda</span>
-</a>
-<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="triagem.html">
-<span class="material-symbols-outlined">smart_screen</span>
-<span class="font-label uppercase tracking-widest text-xs">Triagem</span>
-</a>
-<a class="flex items-center gap-4 py-3 px-6 text-neutral-400 hover:bg-neutral-800/50 transition-colors duration-300" href="configuracoes.html">
-<span class="material-symbols-outlined">settings</span>
-<span class="font-label uppercase tracking-widest text-xs">Configurações</span>
-</a>
-</nav>
-</div>
-<div class="px-8">
-<div class="text-xl font-bold text-[#D4AF37] tracking-tighter">Lorena</div>
-<p class="text-[10px] text-neutral-500 uppercase tracking-widest mt-1">Advocacia</p>
-</div>
-</aside>
 
-    <main class="fade-in pl-72">
-        <header>
-            <div class="welcome">
-                <span>Bem-vinda de volta</span>
-                <h1>Escritório de<br>Advocacia Lorena</h1>
+    <div class="app-container">
+        
+        <!-- Painel Lateral -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1>GeradorDeTabelas</h1>
+                <p>Crie sua tabela profissional em segundos.</p>
             </div>
-            <button class="btn-signature" onclick="alert('Iniciando Triagem com Ana IA...')">+ Nova Triagem</button>
-        </header>
 
-        <div class="editorial-grid">
-            <!-- Coluna Principal -->
-            <div class="main-column">
-                <section>
-                    <h2>Visão Geral</h2>
-                    <div class="card">
-                        <div class="leads-stat">
-                            <div class="value">24</div>
-                            <div class="label">Leads Coletados<br><small style="color: #2ecc71">+25% hoje</small></div>
-                        </div>
-                        
-                        <div class="editorial-list">
-                            <div class="list-item">
-                                <div class="info">
-                                    <div class="title">Ricardo Mendonça</div>
-                                    <div class="subtitle">Consultoria Cível • 14:30</div>
-                                </div>
-                                <div class="tag-status">Agendado</div>
-                            </div>
-                            <div class="list-item">
-                                <div class="info">
-                                    <div class="title">Mariana Costa</div>
-                                    <div class="subtitle">Assinatura de Contrato • 16:45</div>
-                                </div>
-                                <div class="tag-status">Confirmado</div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+            <div class="adsense-placeholder-small">
+                [Espaço para Anúncio Vertical]
+            </div>
 
-                <div class="ai-engine-box">
-                    <h3>Ana IA | Motor de Inteligência</h3>
-                    <p style="color: var(--text-main); font-weight: 300; font-size: 1.1rem; font-style: italic;">
-                        "Processando leads de alta cotação para o período vespertino. 3 novos casos prontos para sua revisão editorial."
-                    </p>
+            <div class="form-section">
+                <h3>Design e Estilo</h3>
+                
+                <div class="form-group">
+                    <label>Modelo de Layout</label>
+                    <select id="inputLayout" onchange="changeLayout()">
+                        <option value="layout-classic">1. Clássico (Vertical c/ Foto)</option>
+                        <option value="layout-side">2. Elegante (Horizontal Lado a Lado)</option>
+                        <option value="layout-minimal">3. Minimalista (Vertical Clean sem Foto)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Tema de Cores</label>
+                    <select id="inputTheme" onchange="changeTheme()">
+                        <option value="pink">Rosa Premium (Salão/Estética)</option>
+                        <option value="black">Preto Moderno (Barbearia/Estúdio)</option>
+                        <option value="gold">Dourado Luxo (Clínicas)</option>
+                        <option value="blue">Azul Elegante (Consultórios)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="heroInputGroup">
+                    <label>Foto de Capa</label>
+                    <input type="file" id="heroInput" accept="image/*">
                 </div>
             </div>
 
-            <!-- Coluna de Triagens -->
-            <div class="side-column">
-                <section>
-                    <h2>Triagens Recentes</h2>
-                    <div class="card" style="padding: 1.5rem;">
-                        <div class="triagem-card">
-                            <span class="id">ID: #89210 • Alberto Fontes</span>
-                            <p>Busca revisão de contrato imobiliário devido a cláusulas abusivas detectadas em auditoria interna...</p>
-                        </div>
-                        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 1.5rem 0;">
-                        <div class="triagem-card">
-                            <span class="id">ID: #89208 • Juliana Silveira</span>
-                            <p>Caso de sucessão familiar complexa. Documentação básica já enviada e validada pela Ana IA.</p>
-                        </div>
-                        <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.05); margin: 1.5rem 0;">
-                        <div class="triagem-card">
-                            <span class="id">ID: #89195 • Pedro Henrique</span>
-                            <p>Dúvidas sobre tributação internacional para prestação de serviços no exterior. Score de urgência: Alto.</p>
-                        </div>
-                    </div>
-                </section>
+            <div class="form-section">
+                <h3>Informações Principais</h3>
+                <div class="form-group">
+                    <label>Nome do Estabelecimento</label>
+                    <input type="text" id="inputName" value="Seu Nome" oninput="updatePreview()">
+                </div>
+                <div class="form-group">
+                    <label>Iniciais (Logotipo)</label>
+                    <input type="text" id="inputInitials" value="SN" maxlength="3" oninput="updatePreview()">
+                </div>
             </div>
-        </div>
-    </main>
+
+            <div class="form-section">
+                <h3>Contatos</h3>
+                <div class="form-group">
+                    <label>WhatsApp</label>
+                    <input type="text" id="inputPhone" value="(00) 00000-0000" oninput="updatePreview()">
+                </div>
+                <div class="form-group">
+                    <label>Instagram</label>
+                    <input type="text" id="inputInsta" value="@seu.insta" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>Serviços e Preços</h3>
+                <div class="form-group">
+                    <label>Símbolo da Moeda</label>
+                    <select id="inputCurrency" onchange="updateCurrency()">
+                        <option value="R$">Real Brasileiro (R$)</option>
+                        <option value="€">Euro (€)</option>
+                    </select>
+                </div>
+                <div id="servicesList"></div>
+                <button class="btn-add" onclick="addService()">+ Adicionar Serviço</button>
+            </div>
+
+            <div class="form-section">
+                <h3>Rodapé</h3>
+                <div class="form-group">
+                    <label>Formas de Pagamento</label>
+                    <input type="text" id="inputFooter" value="Aceitamos Cartão e PIX" oninput="updatePreview()">
+                </div>
+            </div>
+
+            <div class="download-section">
+                <button class="btn-download" onclick="downloadImage()">📥 Baixar Tabela Pronta</button>
+            </div>
+        </aside>
+
+        <!-- Área de Preview -->
+        <main class="preview-area">
+            
+            <div class="adsense-placeholder-large">
+                [Espaço para Banner AdSense 728x90]
+            </div>
+
+            <div class="canvas-wrapper">
+                <!-- CLASSE PADRÃO: layout-classic -->
+                <div id="capture-container" class="layout-classic">
+                    
+                    <div class="hero-photo" id="heroPhoto">
+                        <div id="heroPlaceholder">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            <span style="margin-top: 10px;">Sem foto selecionada</span>
+                        </div>
+                        <img id="previewImg" src="">
+                    </div>
+
+                    <div class="initials-circle">
+                        <span id="previewInitials">SN</span>
+                    </div>
+
+                    <div class="content-area">
+                        <div class="salon-name" id="previewName">Seu Nome</div>
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                                <span id="previewPhone">(00) 00000-0000</span>
+                            </div>
+                            <div class="contact-item">
+                                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                                <span id="previewInsta">@seu.insta</span>
+                            </div>
+                        </div>
+
+                        <div class="services" id="previewServices"></div>
+                        <div class="footer-info" id="previewFooter">Aceitamos Cartão e PIX</div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        let servicesData = [
+            { id: 1, name: 'Serviço Exemplo 1', price: 'R$ 50' },
+            { id: 2, name: 'Serviço Exemplo 2', price: 'R$ 80' },
+            { id: 3, name: 'Serviço Exemplo 3', price: 'R$ 120' }
+        ];
+
+        const captureContainer = document.getElementById('capture-container');
+        const inputName = document.getElementById('inputName');
+        const inputInitials = document.getElementById('inputInitials');
+        const inputPhone = document.getElementById('inputPhone');
+        const inputInsta = document.getElementById('inputInsta');
+        const inputFooter = document.getElementById('inputFooter');
+        
+        const previewName = document.getElementById('previewName');
+        const previewInitials = document.getElementById('previewInitials');
+        const previewPhone = document.getElementById('previewPhone');
+        const previewInsta = document.getElementById('previewInsta');
+        const previewFooter = document.getElementById('previewFooter');
+        const previewServices = document.getElementById('previewServices');
+        const servicesListContainer = document.getElementById('servicesList');
+
+        // Altera o Layout Estrutural
+        function changeLayout() {
+            const layoutMode = document.getElementById('inputLayout').value;
+            // Remove as classes antigas de layout
+            captureContainer.classList.remove('layout-classic', 'layout-side', 'layout-minimal');
+            // Adiciona a nova classe de layout
+            captureContainer.classList.add(layoutMode);
+            
+            // Oculta o campo de upload de foto se o modo for minimalista
+            const heroInputGroup = document.getElementById('heroInputGroup');
+            if (layoutMode === 'layout-minimal') {
+                heroInputGroup.style.display = 'none';
+            } else {
+                heroInputGroup.style.display = 'block';
+            }
+        }
+
+        // Altera o Tema de Cores
+        function changeTheme() {
+            const theme = document.getElementById('inputTheme').value;
+            const root = document.documentElement;
+            
+            if (theme === 'pink') {
+                root.style.setProperty('--theme-primary', '#c4868f');
+                root.style.setProperty('--theme-light', '#e8c5cb');
+                root.style.setProperty('--theme-pale', '#f5e0e3');
+                root.style.setProperty('--theme-hero', '#d4a5a5');
+            } else if (theme === 'black') {
+                root.style.setProperty('--theme-primary', '#2b2b2b');
+                root.style.setProperty('--theme-light', '#999999');
+                root.style.setProperty('--theme-pale', '#e0e0e0');
+                root.style.setProperty('--theme-hero', '#666666');
+            } else if (theme === 'gold') {
+                root.style.setProperty('--theme-primary', '#b8860b');
+                root.style.setProperty('--theme-light', '#d4af37');
+                root.style.setProperty('--theme-pale', '#fdf5e6');
+                root.style.setProperty('--theme-hero', '#cca145');
+            } else if (theme === 'blue') {
+                root.style.setProperty('--theme-primary', '#2c3e50');
+                root.style.setProperty('--theme-light', '#34495e');
+                root.style.setProperty('--theme-pale', '#ebf5fb');
+                root.style.setProperty('--theme-hero', '#7f8c8d');
+            }
+        }
+
+        function updateCurrency() {
+            const currency = document.getElementById('inputCurrency').value;
+            
+            servicesData = servicesData.map(srv => {
+                let p = srv.price;
+                if (currency === '€') {
+                    p = p.replace('R$ ', '').replace('R$', '').trim();
+                    if(p !== '' && !p.includes('€')) p = p + ' €';
+                } else {
+                    p = p.replace(' €', '').replace('€', '').trim();
+                    if(p !== '' && !p.includes('R$')) p = 'R$ ' + p;
+                }
+                return { ...srv, price: p };
+            });
+            renderServiceInputs();
+        }
+
+        function updatePreview() {
+            previewName.innerText = inputName.value || 'Seu Nome';
+            previewInitials.innerText = inputInitials.value || 'SN';
+            previewPhone.innerText = inputPhone.value || '(00) 00000-0000';
+            previewInsta.innerText = inputInsta.value || '@seu.insta';
+            previewFooter.innerText = inputFooter.value || 'Aceitamos Pagamentos';
+        }
+
+        function renderServiceInputs() {
+            servicesListContainer.innerHTML = '';
+            servicesData.forEach((srv) => {
+                const row = document.createElement('div');
+                row.className = 'service-input-row';
+                row.innerHTML = `
+                    <input type="text" placeholder="Nome do Serviço" value="${srv.name}" oninput="updateService(${srv.id}, 'name', this.value)">
+                    <input type="text" class="price-input" placeholder="Preço" value="${srv.price}" oninput="updateService(${srv.id}, 'price', this.value)">
+                    <button class="btn-remove" onclick="removeService(${srv.id})" title="Remover">✕</button>
+                `;
+                servicesListContainer.appendChild(row);
+            });
+            renderPreviewServices();
+        }
+
+        function renderPreviewServices() {
+            previewServices.innerHTML = '';
+            servicesData.forEach(srv => {
+                const row = document.createElement('div');
+                row.className = 'service-row';
+                row.innerHTML = `
+                    <span class="service-name">${srv.name || 'Serviço...'}</span>
+                    <span class="service-price">${srv.price || '0'}</span>
+                `;
+                previewServices.appendChild(row);
+            });
+        }
+
+        // Adiciona um botão para limpar todos os serviços e preços
+        function clearAllServices() {
+            servicesData = [];
+            renderServiceInputs();
+        }
+
+        function addService() {
+            const newId = servicesData.length > 0 ? Math.max(...servicesData.map(s => s.id)) + 1 : 1;
+            const currency = document.getElementById('inputCurrency').value;
+            const defaultPrice = currency === '€' ? '20 €' : 'R$ 50';
+            servicesData.push({ id: newId, name: '', price: defaultPrice });
+            renderServiceInputs();
+        }
+
+        function removeService(id) {
+            servicesData = servicesData.filter(s => s.id !== id);
+            renderServiceInputs();
+        }
+
+        function updateService(id, field, value) {
+            const service = servicesData.find(s => s.id === id);
+            if(service) {
+                service[field] = value;
+                renderPreviewServices();
+            }
+        }
+
+        document.getElementById('heroInput').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('heroPlaceholder').style.display = 'none';
+                    const img = document.getElementById('previewImg');
+                    img.src = e.target.result;
+                    img.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Init
+        renderServiceInputs();
+        updatePreview();
+        changeLayout(); // Inicializa o layout
+
+        async function downloadImage() {
+            const btn = document.querySelector('.btn-download');
+            const originalText = btn.innerText;
+            btn.innerText = '⏳ Gerando Tabela...';
+            btn.style.opacity = '0.7';
+
+            try {
+                // Remove qualquer background fixo para forçar a renderização perfeita do html2canvas no fundo do tema
+                const bgColors = {
+                    'layout-classic': '#faf5f3',
+                    'layout-side': '#faf5f3',
+                    'layout-minimal': getComputedStyle(document.documentElement).getPropertyValue('--theme-pale').trim()
+                };
+                const currentLayout = document.getElementById('inputLayout').value;
+                const canvasBg = bgColors[currentLayout] || '#faf5f3';
+
+                const canvas = await html2canvas(document.getElementById('capture-container'), { 
+                    scale: 2,
+                    useCORS: true,
+                    backgroundColor: canvasBg
+                });
+
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', 0.95));
+                const url = URL.createObjectURL(blob);
+                const link = document.createElement('a');
+                link.href = url;
+                
+                const safeName = (inputName.value || 'tabela').replace(/[^a-z0-9]/gi, '_').toLowerCase();
+                link.download = `tabela_${safeName}.jpg`;
+                
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                setTimeout(() => URL.revokeObjectURL(url), 5000);
+            } catch (err) {
+                alert("Erro ao gerar a imagem. Tente novamente.");
+                console.error(err);
+            } finally {
+                btn.innerText = originalText;
+                btn.style.opacity = '1';
+            }
+        }
+    </script>
 </body>
 </html>
